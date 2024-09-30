@@ -1,0 +1,19 @@
+<html>
+    <body>
+        {% extends "base.html" %}
+        {% block content %}
+        <div class="box-register">
+            <h1>Registrar Sensor</h1>
+            <form action="http://localhost:8080/add_sensor" method="post">
+            <p>Sensor</p>
+            <p><input type="text" name="sensor" placeholder="Sensor" required/></p>
+            <p>Tópico</p>
+            <p><input type="text" name="topic" placeholder="Tópico" required/></p>
+            <p>Unidade de Medida</p>
+            <p><input type="text" name="measure_unit" placeholder="Unidade de Medida" required/></p>
+            <p><input type="submit" value="Cadastrar" /></p>
+            </form>
+        </div>      
+        {% endblock %}
+    </body>
+</html>

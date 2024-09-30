@@ -1,0 +1,24 @@
+ <!--editar_kit.html -->
+ <html>
+    <body>
+       
+        {% extends"base.html" %}
+        {% block content%}
+        <div class="box-register"> 
+        <h1>Registrar Kit</h1>
+        <form action= "http://localhost:8080/change_kit" method= "POST">
+            <input type="text" name="id" value="{{ kit.id }}" style="visibility: hidden;">
+            <p>Nome:</p>
+            <p><input type = "text" name = "name" placeholder="Nome" value="{{ kit.name }}" required/></p>
+            {% for device in checked %}
+                <p style="width: 100px;"><input type="checkbox" name="checkbox" value="{{device.name}}" checked> {{device.name}} </p>
+            {% endfor %}
+            {% for device in unchecked %}
+                <p style="width: 100px;"><input type="checkbox" name="checkbox" value="{{device.name}}"> {{device.name}} </p>
+            {% endfor %}
+            <p><input type = "submit" value = "Cadastrar" /></p>
+        </form>
+        </div>
+        {% endblock%}
+    </body>
+</html>

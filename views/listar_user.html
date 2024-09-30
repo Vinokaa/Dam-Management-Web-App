@@ -1,0 +1,52 @@
+<!-- listar_user.html -->
+<html>
+<head>
+    <title>Minha Casa - Usuários</title>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+    <div class="box-listar">
+    <h1>Usuários</h1>
+    <div class="vertical-center">
+        <div class="container view">
+            <div class="justify-content-center">
+                {% if users|length > 0 %}
+                    <table id="view_users" class="table table-striped table-bordered" style="width:100%;">
+                        <thead>
+                            <tr>
+                                <th>Usuário</th>
+                                <th>Senha</th>
+                                <th>Role</th>
+                                <th>Editar</th>
+                                <th>Remover</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in users %}
+                                <tr>
+                                    <td>{{ user.name }}</td>
+                                    <td>{{ user.password[21:30] }}...</td>
+                                    <td>{{ user.role }}</td>
+                                    <td><a href="/edit_user?id={{user.id}}"> Editar </a></td>
+                                    <td><a href="/del_user?id={{user.id}}"> Remover </a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>Ainda não há usuários registrados!</p>
+                {% endif %}
+                
+                <div class="box-voltar">
+                    <a href="/register_user">
+                        <button> Adicionar usuário </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title> Kits </title>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+    <div class="box-listar">
+    <h1>Kits</h1>
+    <div class="vertical-center">
+        <div class="container view">
+            <div class="justify-content-center">
+                {% if kits|length > 0 %}
+                    <table id="view_users" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Editar</th>
+                                <th>Remover</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for kit in kits %}
+                                <tr>
+                                    <td>{{ kit.name }}</td>
+                                    <td><a href="/edit_kit?id={{kit.id}}"> Editar </a></td>
+                                    <td><a href="/del_kit?id={{kit.id}}"> Remover </a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>Ainda não há kits registrados!</p>
+                {% endif %}
+                
+                <div class="box-voltar">
+                    <a href="/register_kit">
+                        <button> Adicionar kit </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

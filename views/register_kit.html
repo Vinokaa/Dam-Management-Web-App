@@ -1,0 +1,18 @@
+<html>
+    <body>
+        {% extends "base.html" %}
+        {% block content %}
+        <div class="box-register">
+            <h1>Registrar Kit</h1>
+            <form action="http://localhost:8080/add_kit" method="post">
+            <p>Nome</p>
+            <p><input type="text" name="name" placeholder="nome" required/></p>
+            {% for device in devices %}
+                <p style="width: 100px;"><input type="checkbox" name="checkbox" value="{{device.name}}"> {{device.name}} </p>
+            {% endfor %}
+            <p><input type="submit" value="Cadastrar" /></p>
+            </form>
+        </div>      
+        {% endblock %}
+    </body>
+</html>

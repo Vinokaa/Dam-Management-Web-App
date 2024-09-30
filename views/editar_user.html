@@ -1,0 +1,28 @@
+ <!--editar_user.html -->
+ <html>
+    <body>
+       
+        {% extends"base.html" %}
+        {% block content%}
+        <div class="box-register"> 
+        <h1>Registrar Usuario</h1>
+        <form action= "http://localhost:8080/change_user" method= "POST">
+            <input type="text" name="id" value="{{ user.id }}" style="visibility: hidden;">
+            <p>Usuário:</p>
+            <p><input type = "text" name = "user" placeholder="User" value="{{ user.name }}" required/></p>
+            <p>Senha:</p>
+            <p><input type = "text" name = "password" placeholder="Password" value="" required/></p>
+            <p>Cargo:</p>
+            <p>
+                <select name="role" required>
+                    <option value="admin"> admin </option>
+                    <option value="estatístico"> estatístico </option>
+                    <option value="operário"> operário </option>
+                </select>
+            </p>
+            <p><input type = "submit" value = "Cadastrar" /></p>
+        </form>
+        </div>
+        {% endblock%}
+    </body>
+</html>

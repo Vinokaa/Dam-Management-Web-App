@@ -1,0 +1,73 @@
+{% extends "header.html" %}
+{% block content %}
+<html lang="pt-BR">
+    <head>
+        <title> Tempo Real </title>
+        <link rel="stylesheet" href="static/css/TempoReal.css">
+        <meta charset="UTF-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js" integrity="sha512-aMGMvNYu8Ue4G+fHa359jcPb1u+ytAF+P2SCb+PxrjCdO3n3ZTxJ30zuH39rimUggmTwmh2u7wvQsDTHESnmfQ==" crossorigin="anonymous"></script>
+        <script src="static/js/TempoReal.js"></script>
+    </head>
+    <body>
+        <div class="main">
+            <div class="main-left">
+                <div class="card-left">
+                    <svg id="arco" class="arco" onload="fill({{new_fill}}, {{new_fill}})">
+                        <path class="grey" d="M40,90
+                                 A40,40 0 1,1 60,90"
+                              style="fill:none;"/>
+
+                        <path class="purple" d="M40,90
+                                 A40,40 0 1,1 60,90"
+                              style="fill:none;"/>
+                            
+                        <text id="arco-text" class="arco-text" x="52%" y="57%" text-anchor="middle"> {{dist}}cm </text>
+                    </svg>
+                </div>
+            </div>
+            <div class="main-right">
+                <div class="sensores">
+                    <div class="card-right">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="thead-left"> Sensor </th>
+                                    <th class="thead-right"> Valor </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for sensor in sensors %}
+                                <tr>
+                                    <td class="tbody-left"> {{sensor.name}} </td>
+                                    <td class="tbody-right" id="{{sensor.name}}"> {{sensor.value}} </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="atuadores">
+                    <div class="card-right">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="thead-left"> Atuador </th>
+                                    <th class="thead-right"> Valor </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for actuator in actuators %}
+                                <tr>
+                                    <td class="tbody-left"> {{actuator.name}} </td>
+                                    <td class="tbody-right" id="{{actuator.name}}"> {{actuator.value}} </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+{% endblock %}
