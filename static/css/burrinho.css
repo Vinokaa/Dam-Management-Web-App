@@ -1,0 +1,477 @@
+@font-face {
+  font-family: "Geist";
+  src: url("https://assets.codepen.io/605876/GeistVF.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+nao {
+  display: flex;
+  place-items: center;
+  min-height: 100vh;
+  background: url("../img/barragem6.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.devices-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 92%;
+}
+
+
+main {
+  width: 60ch;
+  max-width: 100%;
+}
+
+body {
+  font-family: 'Geist', arial;
+  font-weight: 100;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 1rem;
+  list-style-type: none;
+}
+
+ul::after {
+  border-radius: 10px;
+  content: "";
+  position: absolute;
+  background: hsl(0, 10%, 92%);
+  pointer-events: none;
+  z-index: -2;
+  inset:
+    calc(var(--top) * 1px)
+    calc(100% - (var(--right) * 1px))
+    calc(100% - (var(--bottom) * 1px))
+    calc(var(--left) * 1px);
+  transition: inset 0.2s;
+}
+
+ul[data-enhanced]:hover {
+  --active: 1;
+}
+ul[data-enhanced]::after {
+  opacity: var(--active, 0);
+  transition: opacity 0.2s, inset 0.2s 0.2s;
+}
+ul[data-enhanced]:hover::after {
+  transition: opacity 0.2s 0.2s, inset 0.2s;
+}
+
+@supports(anchor-name: --anchor) {
+  li:nth-of-type(1) article { anchor-name: --develop; }
+  li:nth-of-type(2) article { anchor-name: --preview; }
+  li:nth-of-type(3) article { anchor-name: --ship; }
+  li:nth-of-type(4) article { anchor-name: --profit; }
+
+  :root { --anchor: --develop; }
+  :root:has(li:nth-of-type(1):hover) { --anchor: --develop; }
+  :root:has(li:nth-of-type(2):hover) { --anchor: --preview; }
+  :root:has(li:nth-of-type(3):hover) { --anchor: --ship; }
+  :root:has(li:nth-of-type(4):hover) { --anchor: --profit; }  
+
+  ul::after {
+  	position-anchor: var(--anchor);
+    inset:
+      anchor(top)
+      anchor(right)
+      anchor(bottom)
+      anchor(left);
+  }
+
+  ul:has(li:hover) {
+    --active: 1;
+  }
+  ul::after {
+    opacity: var(--active, 0);
+    transition: opacity 0.2s, inset 0.2s 0.2s;
+  }
+  ul:hover::after {
+    transition: opacity 0.2s 0.2s, inset 0.2s;
+  }
+  
+  article::after {
+    content: unset;
+    display: none;
+  }
+}
+
+ul:not([data-enhanced]) article::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: hsl(0 0% 10%);
+  border-radius: 1rem;
+  opacity: var(--li-active, 0);
+  transition: opacity 0.2s;
+}
+
+article {
+  background-color: white;
+  color: hsl(0, 0%, 0%);
+  padding: 1rem;
+  display: grid;
+  gap: 0.5rem;
+  position: relative;
+  border-radius: 10px;
+  height: 150px;
+  width: 100%;
+}
+
+
+article::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(var(--bg) 0 2px, transparent 2px 38px) -20px -20px / 40px 40px,
+    linear-gradient(90deg, var(--bg) 0 2px, transparent 2px 38px) -20px -20px / 40px 40px;
+  mask: linear-gradient(-35deg, var(--bg) 0%, transparent 45%);
+  z-index: -1;
+  opacity: var(--li-active, 0);
+  transition: opacity 0.2s;
+}
+
+li:hover {
+  --li-active: 1;
+}
+
+article h3 {
+  margin: 0;
+  font-weight: 120;
+}
+
+article p {
+  margin: 0;
+  text-wrap: pretty;
+  background: linear-gradient(hsl(0, 0%, 0%), hsl(0, 0%, 0%));
+  color: transparent;
+  background-clip: text;
+  font-weight: 80;
+}
+
+article svg {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+
+article img {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+
+article svg path {
+  stroke-width: 0.75;
+  stroke: hsl(var(--hue, 30) calc(var(--li-active, 0) * 60%) 60%);
+  transition: stroke 0.2s;
+}
+
+li:nth-of-type(1) { --hue: 30; }
+li:nth-of-type(2) { --hue: 280; }
+li:nth-of-type(3) { --hue: 210; }
+li:nth-of-type(4) { --hue: 120; }
+
+
+/* Estilos para o formulário de registro de sensor */
+
+
+
+
+.box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    padding: 20px;
+    background: rgb(255, 255, 255);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.box h1 {
+    text-align: center;
+    color: #000000;
+    font-weight: 500;
+    font-family: sans-serif;
+}
+
+.box form {
+    margin-top: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.box form p {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.box input[type="text"],
+.box input[type="submit"] {
+    width: 500px;
+    padding: 10px;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.box input[type="submit"] {
+    background-color: #000000;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.box input[type="submit"]:hover {
+    background-color: #000000;
+}
+
+.box .inputBox {
+    position: relative;
+}
+  
+.box .inputBox input {
+    width: 100%;
+    padding: 5px;
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #212121;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #212121;
+    outline: none;
+    background: transparent;
+}
+  
+.box .inputBox label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    letter-spacing: 2px;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #212121;
+    pointer-events: none;
+    transition: 0.5s;
+}
+  
+.box .inputBox input:focus ~ label,
+.box .inputBox input:valid ~ label {
+    top: -25px;
+    left: 0;
+    color: #212121;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+
+
+
+.box-register{
+  position: absolute; 
+  margin-top: 60px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  padding: 20px;
+  background: rgb(255, 255, 255);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.box-register h1 {
+  text-align: center;
+  color: #000000;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.box-register form {
+  margin-top: 20px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.box-register form p {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.box-register input[type="text"],
+.box-register input[type="submit"] {
+  width: 400px;
+  padding: 10px;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.box-register input[type="submit"] {
+  background-color: #000000;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.box-register input[type="submit"]:hover {
+  background-color: #000000;
+}
+
+.box-register .inputBox {
+  position: relative;
+}
+
+.box-register .inputBox input {
+  width: 100%;
+  padding: 5px;
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #212121;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #212121;
+  outline: none;
+  background: transparent;
+}
+
+.box-register .inputBox label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  letter-spacing: 2px;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #212121;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.box-register .inputBox input:focus ~ label,
+.box-register .inputBox input:valid ~ label {
+  top: -25px;
+  left: 0;
+  color: #212121;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+
+/* styles.css */
+
+.box-listar {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px auto;
+  width: 600px;
+  font-family: sans-serif;
+}
+
+
+.table-bordered thead td, .table-bordered thead th {
+  border-bottom-width: 2px;
+}
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #000000;
+}
+.table-bordered td, .table-bordered th {
+  border: 1px solid #000000;
+}
+.table td, .table th {
+  padding: .75rem;
+  vertical-align: top;
+  border-top: 1px solid #000000;
+}
+th {
+  text-align: inherit;
+
+}
+
+td{
+  font-weight: lighter;
+}
+
+/* styles.css */
+
+/* Estilo de fundo específico para a página de listar atuadores */
+
+.box-voltar {
+  padding: 10px;
+  margin-top: 10%;
+  border-radius: 10px;
+  text-align: center;
+  width: 33%;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-left: 20%;
+}
+
+
+
+.box-voltar button {
+  width: 7.5cm; /* Definindo a largura do botão em centímetros */
+  background-color: #000000; /* Cor de fundo */
+  color: #ffffff; /* Cor do texto */
+  padding: 10px 20px; /* Espaçamento interno */
+  border: none; /* Remove a borda */
+  border-radius: 4px; /* Borda arredondada */
+  cursor: pointer; /* Cursor do mouse ao passar sobre o botão */
+  font-size: 16px; /* Tamanho da fonte */
+}
+
+.box-voltar button:hover {
+  background-color: #757575; /* Cor de fundo ao passar o mouse */
+}
+
+h1 {
+  font-size: 50px;
+  color: #000000;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}

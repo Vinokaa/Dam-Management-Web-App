@@ -1,0 +1,120 @@
+
+html, body {
+    margin:0;
+    height:100%;
+    overflow:auto;
+  }
+
+.container .forms{
+    margin-top: 50px;
+    padding-top: 50px;
+    border-color: rgb(0, 0, 0);
+}
+
+.container .view{
+    margin-top: 50px;
+    padding-top: 50px;
+}
+
+.view tr { height: 20px; }
+
+.vertical-center {
+    min-height: 90%; 
+    
+    
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vertical-center img {
+    position: relative;
+    max-width: 100%;
+} 
+.form-check,
+.form-label{
+    padding-top: 10px;
+}
+
+/*history_read*/
+
+
+
+.card-header-history {
+    background-color: #ffffff;
+    color: white;
+    padding: 10px;
+    font-size: 1.25em;
+}
+
+.card-history {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-body-history {
+    padding: 20px;
+}
+
+form .Input-history {
+    width: 100%;
+    padding: 10px;
+    margin: 5px auto;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+form input[type="datetime-local"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+
+form input[type="datetime-local"]:hover,
+form input[type="datetime-local"]:focus {
+    outline: none;
+    border-color: #000; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+form input[type="submit"] {
+    background-color: #000000;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 25%;
+    width: 50%; 
+    text-align: center; 
+    align-self: center; 
+}
+
+form input[type="submit"]:hover {
+    background-color: #051c35;
+}
+
+table.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table.table th, table.table td {
+    border: 1px solid #ff0000;
+    padding: 8px;
+}
+
+table.table th {
+    background-color: #000000;
+    text-align: left;
+    color: white; 
+}
