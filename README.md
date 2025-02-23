@@ -1,5 +1,7 @@
 # Dam Management Web Application
 
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/Vinokaa/Dam-Management-Web-App/blob/master/README.pt-br.md)
+
 This project was made by me and my university group for the Creative Experience: Creating Computing Solutions classes (originally Experiência Criativa: Criando Soluções Computacionais), and it's purpose is to manage and control the water level of dams, aiming to keep it from overflowing.
 
 In order to achieve that, we used a distance sensor (HC-SR04) and a humidity sensor (DHT22) to monitor the water level¹ and have a more strict control when it's raining. In addition to that, we also used two actuators, one LED to represent a minor warning about the water level and a Servo to activate an emergency drainage pipe if the water reaches dangerous levels.
