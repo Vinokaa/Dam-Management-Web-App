@@ -1,12 +1,12 @@
 # Dam Management Web Application
 
-[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/Vinokaa/Dam-Management-Web-App/blob/master/README.pt-br.md)
+[![pt-br](https://img.shields.io/badge/lang-pt--br-green.svg)](https://github.com/Vinokaa/Dam-Management-Web-App/blob/main/README.pt-br.md)
 
 This project was made by me and my university group for the Creative Experience: Creating Computing Solutions classes (originally Experiência Criativa: Criando Soluções Computacionais), and it's purpose is to manage and control the water level of dams, aiming to keep it from overflowing.
 
 In order to achieve that, we used a distance sensor (HC-SR04) and a humidity sensor (DHT22) to monitor the water level¹ and have a more strict control when it's raining. In addition to that, we also used two actuators, one LED to represent a minor warning about the water level and a Servo to activate an emergency drainage pipe if the water reaches dangerous levels.
 
-We used the ESP32 device, which is very common in IoT applications, along with the MicroPython software, which let us write the code for the microcontrollers in Python. The usage of the ESP32 made it possible for us to use the internet, via MQTT protocol, WebSockets and JQuery, for bidirectional communication between the web application and the sensors and actuators.
+We used the ESP32 device, which is very common in IoT applications, along with the MicroPython software, which let us write the code for the microcontrollers in Python. The use of the ESP32 made it possible for us to use the internet, via MQTT protocol, WebSockets and JQuery, for bidirectional communication between the web application and the sensors and actuators.
 
 The web app was mainly made using the Flask framework for Python, and WebSockets was a solution that we found to overcome the only problem that we faced using Flask, which is that Flask can't update data in the website without reloading it, but WebSockets can create a connection between Flask, that has the data collected by the sensor, and JavaScript, which can update data in the website in real-time.
 
@@ -21,7 +21,7 @@ Me and my group implemented a role control system, meaning that every role has a
 
 <img src="https://github.com/user-attachments/assets/6266360a-0858-442a-b49a-2c4d17612b01">
 
-<p align="center"><i> Admin's main page with all the options available </i></p>
+<p align="center"><i> Admin's main page, with all the options available </i></p>
 <br>
 
 <img src="https://github.com/user-attachments/assets/20061829-954e-4c6a-a11e-369e8acf7211">
@@ -46,7 +46,7 @@ The warning and emergency values can easily be modified through the operator or 
 <img src="https://github.com/user-attachments/assets/63d75462-6f21-4723-a5fd-ae5b67ce49ad">
 <br> <br>
 
-Some of the data, like sensor readings, command executions, login/logout are always stored in memory, and can be visualized at any moment by the statistics or admin role.
+Some of the data, like sensor readings, command executions, login/logout are stored in memory, and can be visualized at any moment by the statistics or admin role.
 <br> <br>
 
 <img src="https://github.com/user-attachments/assets/012dc2f2-93f6-4965-909a-43edfe22b35c">
