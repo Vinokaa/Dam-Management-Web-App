@@ -1,5 +1,7 @@
 # Monitoramento de Barragens
 
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/Vinokaa/Dam-Management-Web-App/blob/master/README.md)
+
 Esse projeto foi feito por mim e meu grupo da universidade para a matéria de Experiência Criativa: Criando Soluções Computacionais, e sua premissa é de monitorar e controlar o nível de barragens, buscando evitar o seu vazamento. Para isso, utilizamos um sensor de distância (HC-SR04) e um sensor de umidade (DHT22) para monitorar a distância e ter um controle mais rigoroso caso esteja chovendo. Além disso, também utilizamos dois atuadores, um LED para indicar um nível de alerta do nível da água e um Servo Motor para ativar um válvula de escoamento de água caso a água atinja níveis emergenciais.
 
 Utilizamos o dispositivo ESP32, que é um dispositivo muito comum em aplicações IoT (Internet of Things), possibilitando uma comunicação via internet, e assim utilizamos o protocolo MQTT, WebSockets e jQuery para comunicação bidirecional entre o site e os sensores e atuadores conectados na ESP32.
